@@ -1,15 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <router-link to="/">My Github Repositories</router-link>
+    <router-view></router-view>
+    <RepositoriesList />
+  </div>
+
+  <div>
+    <router-link to="/repo/:repoName">repoName</router-link>
+    <RepositoryDetails />
+    <router-view></router-view>
+  </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import RepositoriesList from './components/RepositoriesList.vue';
+import RepositoryDetails from './components/RepositoryDetails.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    RepositoriesList,
+    RepositoryDetails,
   }
 }
 </script>
@@ -20,7 +33,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  font-size: 50px;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 70px;
 }
+
 </style>
