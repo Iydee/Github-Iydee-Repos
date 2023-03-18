@@ -5,26 +5,17 @@
     <RepositoriesList />
   </div>
 
-  <div> 
-    <router-link to="*">Page Not Found</router-link>
-    <NotFound />
-    <router-view></router-view>
-  </div>
-
 </template>
 
 <script>
 
 import RepositoriesList from './components/RepositoriesList.vue';
-import RepositoryDetails from './components/RepositoryDetails.vue';
-import NotFound from './NotFound.vue';
+
 
 export default {
   name: 'App',
   components: {
-    RepositoriesList,
-    RepositoryDetails,
-    NotFound,
+    RepositoriesList
   }
 }
 </script>
@@ -48,6 +39,6 @@ export default {
 body {
   background-image: url(./assets/rose.jpg);
   background-size: cover;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
 }
 </style>
