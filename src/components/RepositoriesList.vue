@@ -69,7 +69,7 @@ flex-direction: column;
 justify-content: center;
 height: 100vh;
 align-items: center;
-background: url("https://images.unsplash.com/photo-1519680772-8b5c1b2f1b1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80") no-repeat center center/cover;
+
 }
 
 ul {
