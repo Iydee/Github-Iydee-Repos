@@ -5,12 +5,6 @@
     <RepositoriesList />
   </div>
 
-  <div>
-    <router-link to="/repo/:repoName">RepositoryDetails</router-link>
-    <RepositoryDetails />
-    <router-view></router-view>
-  </div>
-
   <div> 
     <router-link to="*">Page Not Found</router-link>
     <NotFound />
