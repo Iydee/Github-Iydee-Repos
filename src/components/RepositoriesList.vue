@@ -1,17 +1,21 @@
 <template>
-    <div>
+    <div class="home">
       <ul>
         <li v-for="repo in repositories" :key="repo.id">
-          <router-link :to="{ name: 'repo-details', params: { repoName: repo.html_url } }">{{ repo.html_url }}</router-link>
-          <br>
-          <br>
-        <router-link :to="{ name: 'repo-details', params: { repoName: repo.name } }">{{ repo.name }}</router-link>
+            <router-link :to="{ name: 'repo-details', params: { repoName: repo.name } }">Github repo: {{ repo.name }}</router-link>
+             <br>
+             <br>
+        
+             <button class="url"><router-link :to="{ name: 'repo-details', params: { repoName: repo.name } }"><a :href="repo.html_url" target="_blank" rel="noopener">Click to view detail</a></router-link></button>
+             
         </li>
+        
       </ul>
+      
       <div class="pagination">
-        <button :disabled="page === 1" @click="previousPage">Previous</button>
-        <span>Page {{ 1 }} of {{ 10 }}</span>
-        <button :disabled="page === totalPages" @click="nextPage">Next</button>
+        <router-link :to="previousPage"><button @click="previousPage">Previous</button></router-link>
+        <span>Page {{ 1 }} of {{ 5 }}</span>
+        <router-link :to="nextPage"><button @click="nextPage">Next</button></router-link>
       </div>
     </div>
   </template>
@@ -25,7 +29,7 @@
       return {
         repositories: [],
         currentPage: 1,
-        perPage: 10,
+        perPage: 2,
         totalCount: 0,
       };
     },
@@ -58,36 +62,73 @@
 <style>
 
 body{
-margin:20;
+margin:0;
 padding:0;
-direction: flex;
+display: grid;
+flex-direction: column;
 justify-content: center;
+height: 100vh;
+align-items: center;
+background: url("https://images.unsplash.com/photo-1519680772-8b5c1b2f1b1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80") no-repeat center center/cover;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding:30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:1px solid #ccc;
+    background-color: #888;
+    border-radius: 20px;
 }
+
+button a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+
 li {
-    margin:10px;
     text-decoration: none;
     list-style: none;
     border: 1px solid #ccc;
+    border-radius: 15px;
+    width: 90%;
     height:100px;
     color:yellow;
     background-color: black;
-    font-size: 25px;
+    font-size: 20px;
     padding: 30px;
     margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 3px #ccc;
+    box-shadow: 0 5px 5px #0f0f0f;
 }
 
 span{
     font-size: 20px;
-    color: #888;
+    color: white;
 
+}
+
+.url{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.url:hover{
+    background-color: #ccec13;
+    color: black;
 }
 
 button{
@@ -106,8 +147,8 @@ button{
 
 button:hover{
     color: #4CAF50;
-    background-color: white;
-    border: 2px solid #4CAF50;
+    background-color: rgb(14, 13, 13);
+    border: 2px solid #d3e911;
 }
 </style>
   
