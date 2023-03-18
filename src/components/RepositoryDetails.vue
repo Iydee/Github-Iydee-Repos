@@ -10,27 +10,26 @@
   </template>
   
   <script>
-export default {
-  name: 'RepositoryDetails',
-  data() {
-    return {
-      repository: null,
-    };
-  },
-  created() {
-    const { repoName } = this.$route.params;
-    fetch(`https://api.github.com/repos/iydee/${repoName}`)
-      .then(response => response.json())
-      .then(repository => {
-        this.repository = repository;
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  },
-};
-</script>
-
+  import axios from 'axios';
+  
+  export default {
+    name: 'RepositoryDetails',
+    data() {
+      return {
+        repository: {},
+      };
+    },
+    async created() {
+      const response = await axios.get(`https://api.github.com/repos/iydee/${this.$route.params.repoName}`);
+      this.repository = response.data;
+    },
+    computed: {
+      repoName() {
+        return this.$route.params.repoName;
+      },
+    },
+  };
+  </script>
 
   
   

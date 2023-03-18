@@ -6,8 +6,14 @@
   </div>
 
   <div>
-    <router-link to="/repo/:repoName">repoName</router-link>
+    <router-link to="/repo/:repoName">RepositoryDetails</router-link>
     <RepositoryDetails />
+    <router-view></router-view>
+  </div>
+
+  <div> 
+    <router-link to="*">Page Not Found</router-link>
+    <NotFound />
     <router-view></router-view>
   </div>
 
@@ -17,12 +23,14 @@
 
 import RepositoriesList from './components/RepositoriesList.vue';
 import RepositoryDetails from './components/RepositoryDetails.vue';
+import NotFound from './NotFound.vue';
 
 export default {
   name: 'App',
   components: {
     RepositoriesList,
     RepositoryDetails,
+    NotFound,
   }
 }
 </script>
@@ -33,9 +41,19 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  font-size: 50px;
-  color: #2c3e50;
-  margin-top: 70px;
+  font-size: 25px;
+  color: #eaeef1;
+  margin-top: 50px;
+  align-content: center;
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+body {
+  background-image: url(./assets/rose.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+}
 </style>
